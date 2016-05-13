@@ -38,7 +38,7 @@ public class Test_property {
         public void createProperties(){
             try (OutputStream out = new FileOutputStream("baaaaat.properties")) {
 		Properties properties = new Properties();
-		properties.setProperty("text.bat", "C:\\Users\\stagiaire\\Documents\\NetBeansProjects\\test_property\\text.bat");
+		properties.setProperty("text.bat", "C:\\Users\\stagiaire\\Documents\\NetBeansProjects\\test_property\\src\\test_property\\text.bat");
 		properties.setProperty("article", "JavaProperties");
 		properties.setProperty("version", "1.0");
 		properties.setProperty("ide", "eclipse");
@@ -58,10 +58,10 @@ public class Test_property {
                 System.out.println(line);
             }
             bri.close();
-            System.out.println("end of getInputStream.");
-            System.out.println();
+            //System.out.println("end of getInputStream.");
+            //System.out.println();
             p.waitFor();
-            System.out.println("Exited with error code "+p.exitValue());
+            System.out.println("Exited with error code : (01 means before midi , 02 means after midi) "+p.exitValue());
             }
             catch (Exception err) {
                 err.printStackTrace();
