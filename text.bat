@@ -1,19 +1,23 @@
-@ECHO OFF
-echo this is a test.bat file ,if the system time is before midi, the exit_code will be 01,else it will be 02.
-
-
-
 ::exit 20
 ::set the errorlevel manually, if we add this sentence
 
-rem setlocal enableDelayedExpansion
+@ECHO OFF
+echo this is a test.bat file used to test "if time is before midi,then the errorlevel will be set to 01,else it will be 02."
+set HH=%TIME: =0%
+set HH=%HH:~0,2%
+echo hour is %HH%
 
-rem for /f %%a in (c:\list.cvs) do (
+IF %HH% LEQ 12 GOTO before
+IF %HH% GTR 12 GOTO after
 
-rem set var=%%a
+:before
+echo now it is before midi
+set errorlevel=01
+echo errorlevel is %errorlevel%
+::exit 01
 
-rem echo !var!
-
-rem )
-
-rem endloca
+:after
+echo now it is after midi
+set errorlevel=02
+echo errorlevel is %errorlevel%
+exit 02
